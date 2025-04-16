@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="haelo">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png"/>
+
+  <title>haelo</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "1555209334";
+
+     (function() {
+      const firebaseConfig = {
+        apiKey: "AIzaSyAqN21dVimYNu88mpdK2xcoY23s6qPai1g",
+        authDomain: "rajasthan-high-court.firebaseapp.com",
+        projectId: "rajasthan-high-court",
+        storageBucket: "rajasthan-high-court.firebasestorage.app",
+        messagingSenderId: "999104674185",
+        appId: "1:999104674185:web:d7b5d2e39d2d23c6b18958",
+        measurementId: "G-PVGJ89ZMFJ"
+      };
+
+      // Initialize Firebase
+      if (typeof firebase === "undefined") {
+        console.error("Firebase SDK not loaded!");
+      } else {
+        firebase.initializeApp(firebaseConfig);
+        if ('measurementId' in firebaseConfig) {
+          firebase.analytics();
+        }
+        console.log("Firebase Initialized.");
+      }
+    })();
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+
+  <!-- Custom Loader CSS -->
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff; /* Change to match your theme */
+    }
+
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #535BFE; /* Your theme color */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+   if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js');
+      });
+</script>
+
+</head>
+<body>
+
+<!-- Custom Loader -->
+<div id="loader-container" class="loader-container">
+  <div class="loader"></div>
+</div>
+
+
+<script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js and initialize Flutter
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function(engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function(appRunner) {
+        return appRunner.runApp();
+      }).then(function() {
+        // Hide loader when Flutter is fully loaded
+        var loader = document.getElementById("loader-container");
+        if (loader) {
+          loader.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</body>
+</html>
